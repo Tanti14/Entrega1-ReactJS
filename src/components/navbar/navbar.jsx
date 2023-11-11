@@ -25,7 +25,7 @@ export const Navbar = () => {
       refMenu.current.style.transform = "translate(0)";
     } else {
       setMenuState(0);
-      refMenu.current.style.transform = "translate(200%)";
+      refMenu.current.style.transform = "translate(105%)";
     }
   };
 

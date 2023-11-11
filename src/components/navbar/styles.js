@@ -7,6 +7,9 @@ export const HeaderSection = styled.header`
   background-color: #ec38bc;
   width: 100%;
   height: 125px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 
   a {
     color: white;
@@ -37,7 +40,6 @@ export const NavBtnContainer = styled.div`
   gap: 40px;
 
   @media (width <= 768px) {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -50,7 +52,7 @@ export const NavBtnContainer = styled.div`
     gap: 60px;
     z-index: 3;
 
-    transform: translate(200%);
+    transform: translate(105%);
     transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
   }
 `;

@@ -7,6 +7,7 @@ export const HeroSectionContainer = styled.div`
   align-items: center;
   width: 100%;
   padding: 50px 0;
+  margin-top: 125px;
 
   background: url(${herobg});
   background-position: center;
