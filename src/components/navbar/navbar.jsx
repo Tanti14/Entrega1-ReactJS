@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import TxtLogo from "../../assets/img/Dulce1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 import {
   HeaderSection,
   NavContainer,
@@ -9,13 +10,16 @@ import {
   NavImgContainer,
   MobileNavbarBtn,
 } from "./styles";
+import { MenuContext } from "../../context/menuContext";
 
 export const Navbar = () => {
   /* 0 = Cerrado
      1 = Abierto 
   */
 
-  const [menuState, setMenuState] = useState(0);
+     const value = useContext(MenuContext);
+
+  /* const [menuState, setMenuState] = useState(0);
   const refMenuBtn = useRef(),
     refMenu = useRef();
 
@@ -29,11 +33,28 @@ export const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY !== 0 && menuState === 1) {
+        setMenuState(0);
+        refMenu.current.style.transform = "translate(105%)";
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [menuState]); */
+
   return (
     <HeaderSection>
       <NavContainer>
         <NavImgContainer>
-          <img src={TxtLogo} alt="" />
+          <NavLink to="/">
+            <img src={TxtLogo} alt="" />
+          </NavLink>
         </NavImgContainer>
 
         <MobileNavbarBtn>
@@ -46,10 +67,38 @@ export const Navbar = () => {
         </MobileNavbarBtn>
 
         <NavBtnContainer ref={refMenu}>
-          <a href="#">Inicio</a>
-          <a href="#">Poductos</a>
-          <a href="#">Box Contents</a>
-          <a href="#">Proximamente</a>
+          <NavLink
+            to="/"
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+          >
+            Inicio
+          </NavLink>
+          <NavLink
+            to="/products"
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+          >
+            Productos
+          </NavLink>
+          <NavLink
+            to="/about"
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+          >
+            Sobre Nosotros
+          </NavLink>
+          <NavLink
+            to="/contact"
+            style={({ isActive }) => ({
+              textDecoration: isActive ? "underline" : "none",
+            })}
+          >
+            Contacto
+          </NavLink>
         </NavBtnContainer>
       </NavContainer>
     </HeaderSection>

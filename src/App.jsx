@@ -1,10 +1,13 @@
-import './App.css'
-import { HomeScreen } from './screens/home/home_screen'
+import "./App.css";
+import { ContextMenu, MenuContext } from "./context/menuContext";
+import { RoutesDef } from "./routes/Routes";
 
 function App() {
   return (
-    <HomeScreen/>
-  )
+    <ContextMenu>
+      <RoutesDef />
+    </ContextMenu>
+  );
 }
 
-export default App
+export default App;

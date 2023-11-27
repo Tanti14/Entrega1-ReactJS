@@ -6,6 +6,7 @@ export const HeroSectionContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100vh;
   padding: 50px 0;
   margin-top: 125px;
 
@@ -13,6 +14,10 @@ export const HeroSectionContainer = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media (width <= 992px) {
+    height: auto;
+  }
 `;
 
 export const HeroGlassmorphism = styled.div`

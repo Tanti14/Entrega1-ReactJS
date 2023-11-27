@@ -6,12 +6,8 @@ export const ProdSectionContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 40px;
-  gap: 30px;
-
-  /* background-image: linear-gradient(90deg, #e9defa 0%, #fbfcdb 100%); */
-  /* background: lightgray; */
-  /* background: #F9B9F2; */
+  padding: 100px;
+  gap: 60px;
   background: #F0A6CA;
 `;
 

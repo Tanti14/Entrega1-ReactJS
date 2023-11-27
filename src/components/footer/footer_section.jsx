@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  FooterRows,
+  FooterColumns,
   FooterSectionContainer,
   PayMethods,
   PedidosRedes,
@@ -17,7 +17,7 @@ import {
 export const FooterSection = () => {
   return (
     <FooterSectionContainer>
-      <FooterRows>
+      <FooterColumns>
         <PayMethods>
           <h4>Medios de Pago</h4>
           <ul>
@@ -73,7 +73,7 @@ export const FooterSection = () => {
             Seguinos en nuestro Instagram y enterate cuando estemos de feria!
           </p>
         </VisitUs>
-      </FooterRows>
+      </FooterColumns>
       <p>
         Dulce Maicenita Candy Shop &copy; 2023 | Web designed & created by
         Santiago Costanti

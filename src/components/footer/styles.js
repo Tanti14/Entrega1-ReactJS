@@ -22,13 +22,17 @@ export const FooterSectionContainer = styled.footer`
   }
 `;
 
-export const FooterRows = styled.div`
+export const FooterColumns = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
 
-  a:visited {
+  a {
     color: white;
+
+    &:visited {
+      color: white;
+    }
   }
 
   li {
@@ -57,7 +61,6 @@ export const PayMethods = styled.div`
   flex-direction: column;
   align-items: center;
   width: 20%;
-
 
   @media (width <= 414px) {
     width: 30%;

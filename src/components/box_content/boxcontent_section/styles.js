@@ -23,7 +23,6 @@ export const Parrafo = styled.p`
 
 export const CardsContainer = styled.div`
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
