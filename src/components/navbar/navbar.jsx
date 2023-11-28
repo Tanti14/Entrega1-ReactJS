@@ -10,16 +10,13 @@ import {
   NavImgContainer,
   MobileNavbarBtn,
 } from "./styles";
-import { MenuContext } from "../../context/menuContext";
 
 export const Navbar = () => {
   /* 0 = Cerrado
      1 = Abierto 
   */
 
-     const value = useContext(MenuContext);
-
-  /* const [menuState, setMenuState] = useState(0);
+  const [menuState, setMenuState] = useState(0);
   const refMenuBtn = useRef(),
     refMenu = useRef();
 
@@ -46,7 +43,7 @@ export const Navbar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [menuState]); */
+  }, [menuState]);
 
   return (
     <HeaderSection>
