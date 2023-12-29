@@ -11,6 +11,7 @@ export const CardItemsContainer = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 10px;
 `;
 
 export const CardImgContainer = styled.div`
@@ -30,8 +31,6 @@ export const CardBlurEffect = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  width: 320px;
-  height: 390px;
   gap: 10px;
 
   background: rgba(255, 255, 255, 0.11);
@@ -49,5 +48,14 @@ export const CardTxtContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
+
+  h3{
+    font-size: 22px;
+    font-weight: 800;
+  }
+  span{
+    font-size: 18px;
+    font-weight: 700;
+  }
 `;

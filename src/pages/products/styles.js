@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ProductCard } from "../../components/products/product_card/product_card";
 
 export const StyledProdsContainer = styled.div`
   display: flex;
@@ -8,6 +7,7 @@ export const StyledProdsContainer = styled.div`
   align-items: center;
   width: 100%;
   padding-top: 125px;
+  margin-top: 60px;
   background-color: #ffc8dd;
 `;
 
@@ -18,8 +18,7 @@ export const StyledProdCards = styled.div`
   max-width: 1200px;
   width: 100%;
   flex-wrap: wrap;
-  padding: 60px 30px;
-  margin-top: 20px;
+  padding: 30px;
   gap: 20px;
 
   @media (width <= 992px) {

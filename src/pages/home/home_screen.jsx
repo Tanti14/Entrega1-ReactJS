@@ -6,12 +6,10 @@ import { HomeLayout } from "../../components/home_layout/home_layout";
 
 export const HomeScreen = () => {
   return (
-    <>
-      <HomeLayout>
-        <HeroSection />
-        <ProductsSection />
-        <BoxcontentSection />
-      </HomeLayout>
-    </>
+    <HomeLayout>
+      <HeroSection />
+      <ProductsSection />
+      <BoxcontentSection />
+    </HomeLayout>
   );
 };

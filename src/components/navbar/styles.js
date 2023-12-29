@@ -22,6 +22,7 @@ export const NavContainer = styled.nav`
   align-items: center;
   width: 100%;
   padding: 0 30px;
+  gap: 20px;
   position: relative;
 `;
 
@@ -41,15 +42,15 @@ export const NavBtnContainer = styled.div`
 
   @media (width <= 768px) {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     position: absolute;
     background-color: #ec38bc;
     width: 40%;
-    height: calc(100vh - 124px);
-    top: 124px;
+    padding: 30px 20px;
+    top: 98px;
     right: 0;
-    gap: 60px;
+    gap: 30px;
     z-index: 3;
 
     transform: translate(105%);
@@ -69,4 +70,40 @@ export const MobileNavbarBtn = styled.div`
     display: flex;
     width: 80%;
   }
+`;
+
+export const Cart = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #ec38bc;
+  width: 40%;
+  height: calc(100vh - 125px);
+  top: 122px;
+  right: 0;
+  gap: 60px;
+  z-index: 3;
+  overflow-y: scroll;
+  padding: 20px 40px;
+
+  transform: translate(105%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
+`;
+
+export const CartTitle = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+export const CartItemsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+
+export const CartBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
