@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const CartCardContent = styled.div`
@@ -9,6 +10,7 @@ export const CartCardContent = styled.div`
   background-color: #ec38bc;
   border-radius: 16px;
   color: white;
+  border: 2px solid white;
 
   img {
     width: 130px;
@@ -43,13 +45,18 @@ export const CartCardBtns = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   width: 100%;
 
-  button {
-    background-color: rgba(245, 158, 11, 1);
-    width: 25px;
-    border-radius: 5px;
-    border: 1px solid white;
+  span {
+    width: 20px;
+    text-align: center;
   }
+`;
+
+export const CardBtn = styled(motion.button)`
+  background-color: rgba(245, 158, 11, 1);
+  width: 25px;
+  border-radius: 5px;
+  border: 1px solid white;
 `;

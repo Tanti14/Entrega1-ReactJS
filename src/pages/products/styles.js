@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const StyledProdsContainer = styled.div`
@@ -6,9 +7,26 @@ export const StyledProdsContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-top: 125px;
+  padding: 125px 0;
   margin-top: 60px;
   background-color: #ffc8dd;
+`;
+
+export const CategoryButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 0;
+  width: 100%;
+  user-select: none;
+`;
+export const Button = styled(motion.button)`
+  background-color: ${({ selected }) => (selected ? "#F6B17A" : "orange")};
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 4px 20px;
+  color: white;
 `;
 
 export const StyledProdCards = styled.div`
@@ -39,5 +57,27 @@ export const StyledProdCards = styled.div`
   @media (width <= 414px) {
     max-width: 380px;
     width: 100%;
+  }
+`;
+
+export const StyledProdButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 30px;
+  padding: 65px;
+
+  button {
+    background: orange;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 4px 20px;
+    color: white;
+  }
+
+  :disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `;

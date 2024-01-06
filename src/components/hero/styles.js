@@ -6,18 +6,13 @@ export const HeroSectionContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
-  padding: 50px 0;
+  height: calc(100vh - 125px);
   margin-top: 125px;
 
   background: url(${herobg});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
-  @media (width <= 992px) {
-    height: auto;
-  }
 `;
 
 export const HeroGlassmorphism = styled.div`
@@ -46,8 +41,11 @@ export const HeroGlassmorphism = styled.div`
   }
 
   @media (width <= 576px) {
+    flex-direction: column;
     max-width: 500px;
     width: 100%;
+    height: 90%;
+    gap: 40px;
   }
 
   @media (width <= 414px) {
@@ -61,18 +59,17 @@ export const ImgContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+  /* opacity: 0;
+  animation: fade 0.9s ease-in forwards, slide-right 1.3s ease-in-out;
+  animation-delay: 0.2s; */
   img {
     width: 400px;
   }
 
   @media (width <= 768px) {
-    img{
+    img {
       width: 350px;
     }
-  }
-
-  @media (width <= 576px) {
-    display: none;
   }
 `;
 
@@ -83,29 +80,27 @@ export const HeroTextContainer = styled.div`
   align-items: center;
   width: 50%;
 
-  h1{
-    font-family: 'Clicker Script', cursive;
+  h1 {
+    font-family: "Clicker Script", cursive;
     font-size: 80px;
   }
 
-  p{
+  p {
     font-size: 18px;
     text-align: justify;
     padding: 0 20px;
   }
 
   @media (width <= 768px) {
-    h1{
+    h1 {
       font-size: 60px;
     }
-    p{
+    p {
       font-size: 16px;
     }
   }
 
-
   @media (width <= 576px) {
     width: 100%;
   }
-
 `;

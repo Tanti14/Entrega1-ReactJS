@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, useContext } from "react";
 import TxtLogo from "../../assets/img/Dulce1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   HeaderSection,
   NavContainer,
@@ -13,14 +13,20 @@ import {
   CartItemsContainer,
   CartBtn,
   CartTitle,
+  CartBtnContainer,
+  NavCartBtn,
+  CartDetailsContainer,
+  CartDetails,
+  CartActionsBtns,
 } from "./styles";
 import { CartCard } from "../cart_card/cart_card";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../../redux/cart/cartSlice";
+import { formatPrice } from "../../utils/formatPrice";
+import Swal from "sweetalert2";
 
 export const Navbar = () => {
-  /* 0 = Cerrado
-     1 = Abierto 
-  */
-
+  const navigate = useNavigate();
   const [menuState, setMenuState] = useState(0);
   const [cartState, setCartState] = useState(0);
   const refMenuBtn = useRef(),
@@ -59,7 +65,7 @@ export const Navbar = () => {
       setCartState((prev) => prev + 1);
       refCart.current.style.transform = "translate(0)";
     } else {
-      setMenuState(0);
+      setCartState(0);
       refCart.current.style.transform = "translate(105%)";
     }
   };
@@ -79,12 +85,56 @@ export const Navbar = () => {
     };
   }, [cartState]);
 
+  /* ========================================================= */
+
+  const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const shippingCost = 1200;
+
+  const totalCartItems = useSelector((state) => state.cart.cartItems).reduce(
+    (acc, item) => (acc += item.quantity),
+    0
+  );
+
+  const totalPrice = useSelector((state) => state.cart.cartItems).reduce(
+    (acc, item) => (acc += item.precio * item.quantity),
+    0
+  );
+
+  const vaciarCarrito = () => {
+    Swal.fire({
+      title: "Desea vaciar el carrito?",
+      text: "Esta acción no se puede revertir!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, vaciar carrito!",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Carrito vacio",
+          text: "Su carrito se ha vaciado con exito",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        setTimeout(() => {
+          dispatch(clearCart());
+          handleToggleCart();
+        }, 1000);
+      }
+    });
+  };
+
   return (
     <HeaderSection>
       <NavContainer>
         <NavImgContainer>
           <NavLink to="/">
-            <img src={TxtLogo} alt="" />
+            <img src={TxtLogo} alt="Logo Dulce Maicenita" />
           </NavLink>
         </NavImgContainer>
 
@@ -135,12 +185,16 @@ export const Navbar = () => {
             Contacto
           </NavLink>
         </NavBtnContainer>
-        <FontAwesomeIcon
-          onClick={handleToggleCart}
-          ref={refCartBtn}
-          className="text-white text-xl"
-          icon={faCartShopping}
-        />
+        <CartBtnContainer onClick={handleToggleCart} ref={refCartBtn}>
+          <NavCartBtn>
+            <FontAwesomeIcon
+              className="text-white text-xl"
+              icon={faCartShopping}
+            />
+            <span>{totalCartItems}</span>
+          </NavCartBtn>
+        </CartBtnContainer>
+
         <Cart ref={refCart}>
           <CartTitle>
             <h2 className="text-xl text-white font-bold underline">
@@ -148,15 +202,58 @@ export const Navbar = () => {
             </h2>
           </CartTitle>
           <CartItemsContainer>
-            <CartCard />
-            <CartCard />
-            <CartCard />
-            <CartCard />
+            {cartItems.length ? (
+              cartItems.map((item) => <CartCard key={item.id} {...item} />)
+            ) : (
+              <span className="text-white text-2xl">
+                El carrito esta vacio!
+              </span>
+            )}
           </CartItemsContainer>
+
+          <CartDetailsContainer>
+            <div className="bg-white border-[1.5px] rounded-md"></div>
+            <p>Detalles:</p>
+            <CartDetails>
+              <p>Subtotal</p>
+              <span>{formatPrice(totalPrice)}</span>
+            </CartDetails>
+            <CartDetails>
+              <p>Envio</p>
+              <span>
+                {cartItems.length ? formatPrice(shippingCost) : formatPrice(0)}
+              </span>
+            </CartDetails>
+            <div className="bg-white border-[1.5px] rounded-md"></div>
+            <CartDetails>
+              <p>Total</p>
+              <span>
+                {cartItems.length
+                  ? formatPrice(totalPrice + shippingCost)
+                  : formatPrice(0)}
+              </span>
+            </CartDetails>
+          </CartDetailsContainer>
           <CartBtn>
-            <button className="bg-slate-500 text-white w-[80%] py-2 rounded-xl">
+            <CartActionsBtns
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => vaciarCarrito()}
+              disabled={!cartItems.length}
+            >
+              Vaciar carrito
+            </CartActionsBtns>
+            <CartActionsBtns
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => {
+                handleToggleCart();
+                navigate("/checkout");
+              }}
+              disabled={!cartItems.length}
+            >
               Finalizar pedido
-            </button>
+            </CartActionsBtns>
           </CartBtn>
         </Cart>
       </NavContainer>

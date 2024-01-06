@@ -1,17 +1,16 @@
 import styled from "styled-components";
-import bg from "../../../assets/img/cards_img/card_bg.png";
+import { motion } from "framer-motion";
 
 export const CardItemsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  border-radius: 16px;
-  background: url(${bg});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 10px;
+  background-color: #ffff;
+  padding: 20px;
+  gap: 10px;
+  position: relative;
+  height: 450px;
 `;
 
 export const CardImgContainer = styled.div`
@@ -21,27 +20,8 @@ export const CardImgContainer = styled.div`
 
   img {
     width: 280px;
-    border-radius: 10px;
   }
 `;
-
-export const CardBlurEffect = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  gap: 10px;
-
-  background: rgba(255, 255, 255, 0.11);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-`;
-
-
 
 export const CardTxtContainer = styled.div`
   display: flex;
@@ -50,12 +30,28 @@ export const CardTxtContainer = styled.div`
   align-items: center;
   gap: 5px;
 
-  h3{
+  h3 {
     font-size: 22px;
     font-weight: 800;
   }
-  span{
+  span {
     font-size: 18px;
     font-weight: 700;
   }
+`;
+
+export const CardBtnContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+`;
+
+export const ProdCardBtn = styled(motion.button)`
+  background-color: rgba(245, 158, 11, 1);
+  padding: 5px 25px;
+  width: 100%;
+  color: white;
 `;

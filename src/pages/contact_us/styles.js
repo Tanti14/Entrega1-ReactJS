@@ -24,7 +24,7 @@ export const StyledFormScreen = styled.div`
   }
 
   @media (width <= 576px) {
-    img{
+    img {
       display: none;
     }
   }
@@ -79,9 +79,14 @@ export const StyledInput = styled.input`
 
   &[type="submit"] {
     cursor: pointer;
-    &:hover{
+    &:hover {
       background-color: #ec38bc;
-      transition: all .3s ease-in;
+      transition: all 0.3s ease-in;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 `;
