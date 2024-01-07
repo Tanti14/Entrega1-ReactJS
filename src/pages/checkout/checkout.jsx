@@ -78,7 +78,7 @@ export const Checkout = () => {
       <CheckoutScreenItems>
         <FormContainer>
           <h2 className="text-3xl">DATOS DE ENVIO</h2>
-          <CheckoutForm onSubmit={handleSubmit}>
+          <CheckoutForm noValidate onSubmit={handleSubmit}>
             <InputField>
               <label htmlFor="name">Nombre</label>
               <StyledInput

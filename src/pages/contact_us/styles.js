@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const StyledFormScreen = styled.div`
@@ -8,6 +9,7 @@ export const StyledFormScreen = styled.div`
   margin-top: 125px;
   background-color: #ffc8dd;
   color: white;
+  gap: 60px;
   padding: 30px;
   img {
     width: 50%;
@@ -16,11 +18,17 @@ export const StyledFormScreen = styled.div`
   @media (width <= 992px) {
     max-width: 990px;
     width: 100%;
+    img {
+      width: 40%;
+    }
   }
 
   @media (width <= 768px) {
     max-width: 765px;
     width: 100%;
+    img {
+      display: none;
+    }
   }
 
   @media (width <= 576px) {
@@ -41,8 +49,18 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   width: 35%;
-  padding: 60px 0;
-  gap: 20px;
+  padding: 50px 40px;
+  gap: 10px;
+  background-color: #a367b1;
+  border-radius: 22px;
+
+  h2 {
+    font-size: 26px;
+  }
+
+  @media (width <= 992px) {
+    width: 60%;
+  }
 
   @media (width <= 768px) {
     max-width: 765px;
@@ -61,8 +79,8 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledInput = styled.input`
-  border: 2px solid #ec38bc;
-  width: 70%;
+  border: 2px solid white;
+  width: 100%;
   text-align: center;
   padding: 6px;
   background: transparent;
@@ -76,35 +94,43 @@ export const StyledInput = styled.input`
     color: white;
     text-align: center;
   }
-
-  &[type="submit"] {
-    cursor: pointer;
-    &:hover {
-      background-color: #ec38bc;
-      transition: all 0.3s ease-in;
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  }
 `;
 
 export const StyledTextArea = styled.textarea`
   padding: 10px;
-  border: 2px solid #ec38bc;
-  width: 70%;
+  border: 2px solid white;
+  width: 100%;
   background: transparent;
   border-radius: 15px;
   resize: none;
   color: white;
+
   &:focus {
-    border: 2px solid green;
     outline: none;
   }
+
   &::placeholder {
     color: white;
     text-align: center;
   }
+`;
+
+export const SubmitBtn = styled(motion.button)`
+  width: 100%;
+  border-radius: 12px;
+  color: black;
+  background-color: white;
+  padding: 5px 10px;
+  text-align: center;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;
+
+export const GroupedInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;

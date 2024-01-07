@@ -11,6 +11,14 @@ export const CheckoutScreenContainer = styled.div`
   width: 100%;
   background-color: #ffc8dd;
   color: white;
+
+  @media (width <= 470px) {
+    align-items: center;
+    h1 {
+      width: 400px;
+      text-align: center;
+    }
+  }
 `;
 
 export const CheckoutScreenItems = styled.div`
@@ -21,6 +29,12 @@ export const CheckoutScreenItems = styled.div`
   border-radius: 20px;
   background-color: #181920;
   padding: 20px 30px;
+
+  @media (width <= 470px) {
+    flex-direction: column-reverse;
+    padding: 20px;
+    gap: 30px;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -31,6 +45,13 @@ export const FormContainer = styled.div`
   width: 40%;
   height: 100%;
   gap: 30px;
+
+  @media (width <= 470px) {
+    align-items: center;
+    width: 100%;
+    border-top: 2px solid white;
+    padding-top: 20px;
+  }
 `;
 
 export const CheckoutForm = styled.form`
@@ -87,6 +108,11 @@ export const CheckoutCartItems = styled.div`
   width: 60%;
   padding: 0 10px;
   gap: 30px;
+
+  @media (width <= 470px) {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const CartItems = styled.div`

@@ -18,7 +18,6 @@ export const CartCard = ({ id, img, title, precio, quantity }) => {
       <CardRightSide>
         <CartCardText>
           <h2>{title}</h2>
-
           <span>{formatPrice(precio)}</span>
         </CartCardText>
         <CartCardBtns>

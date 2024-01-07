@@ -1,14 +1,17 @@
 import React from "react";
 import contactbg from "../../assets/img/contactus.svg";
 import {
+  GroupedInputs,
   StyledForm,
   StyledFormScreen,
   StyledInput,
   StyledTextArea,
+  SubmitBtn,
 } from "./styles";
 import { useFormik } from "formik";
 import { contactSchema, contactInitialValues } from "../../Formik/index.js";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const ContactusScreen = () => {
   const navigate = useNavigate();
@@ -20,57 +23,95 @@ export const ContactusScreen = () => {
     validateOnMount: false,
     onSubmit: (values) => {
       console.log(values);
-      resetForm();
-      navigate("/");
+      Swal.fire({
+        position: "top-start",
+        icon: "success",
+        title: "Mensaje enviado con exito",
+        text: "Nos comunicaremos a la brevedad",
+        showConfirmButton: false,
+        timer: 2500,
+        showClass: {
+          popup: `
+            animate__animated
+            animate__fadeInLeft
+            animate__lower
+          `,
+        },
+        hideClass: {
+          popup: `
+            animate__animated
+            animate__fadeOutLeft
+            animate__lower
+          `,
+        },
+      });
+
+      setTimeout(() => {
+        resetForm();
+        navigate("/", { replace: true });
+      }, 500);
     },
   });
   return (
     <StyledFormScreen>
-      <StyledForm onSubmit={handleSubmit}>
-        <h2>Formulario de Contacto</h2>
-        <StyledInput
-          type="text"
-          name="Name"
-          {...getFieldProps("name")}
-          placeholder="Nombre"
-        />
-        {errors.name && <span className="text-red-700">{errors.name}</span>}
-        <StyledInput
-          type="text"
-          name="LastName"
-          {...getFieldProps("lastname")}
-          placeholder="Apellido"
-        />
-        {errors.lastname && (
-          <span className="text-red-700">{errors.lastname}</span>
-        )}
-        <StyledInput
-          type="email"
-          name="Email"
-          {...getFieldProps("email")}
-          placeholder="Correo electronico"
-        />
-        {errors.email && <span className="text-red-700">{errors.email}</span>}
-        <StyledTextArea
-          name="Asunto"
-          cols="30"
-          rows="10"
-          {...getFieldProps("consulta")}
-          placeholder="Ingresa tu consulta"
-        ></StyledTextArea>
-        {errors.consulta && (
-          <span className="text-red-700">{errors.consulta}</span>
-        )}
-        <StyledInput
+      <StyledForm noValidate onSubmit={handleSubmit}>
+        <h2>FORMULARIO DE CONTACTO</h2>
+        <GroupedInputs>
+          <label htmlFor="name">Nombre</label>
+          <StyledInput
+            type="text"
+            name="name"
+            {...getFieldProps("name")}
+            placeholder="Ingrese su nombre"
+          />
+        </GroupedInputs>
+        {errors.name && <span>{errors.name}</span>}
+
+        <GroupedInputs>
+          <label htmlFor="lastname">Apellido</label>
+          <StyledInput
+            type="text"
+            name="lastname"
+            {...getFieldProps("lastname")}
+            placeholder="Ingrese su apellido"
+          />
+        </GroupedInputs>
+        {errors.lastname && <span>{errors.lastname}</span>}
+
+        <GroupedInputs>
+          <label htmlFor="email">Correo electronico</label>
+          <StyledInput
+            type="email"
+            name="email"
+            {...getFieldProps("email")}
+            placeholder="Ingrese su correo electronico"
+          />
+        </GroupedInputs>
+        {errors.email && <span>{errors.email}</span>}
+        <GroupedInputs>
+          <label htmlFor="asunto">Mensaje</label>
+          <StyledTextArea
+            name="asunto"
+            cols="30"
+            rows="10"
+            {...getFieldProps("consulta")}
+            placeholder="Ingresa su mensaje"
+          ></StyledTextArea>
+        </GroupedInputs>
+        {errors.consulta && <span>{errors.consulta}</span>}
+        <SubmitBtn
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.9 }}
           type="submit"
-          name="Enviar"
           disabled={
             !values.name &&
             !values.lastname &&
             !values.email &&
             !values.consulta
           }
-        />
+        >
+          ENVIAR
+        </SubmitBtn>
       </StyledForm>
       <img src={contactbg} alt="" />
     </StyledFormScreen>

@@ -11,6 +11,7 @@ export const CardItemsContainer = styled.div`
   gap: 10px;
   position: relative;
   height: 450px;
+  width: 300px;
 `;
 
 export const CardImgContainer = styled.div`
@@ -36,7 +37,7 @@ export const CardTxtContainer = styled.div`
   }
   span {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
   }
 `;
 
@@ -50,7 +51,7 @@ export const CardBtnContainer = styled.div`
 `;
 
 export const ProdCardBtn = styled(motion.button)`
-  background-color: rgba(245, 158, 11, 1);
+  background-color: orange;
   padding: 5px 25px;
   width: 100%;
   color: white;

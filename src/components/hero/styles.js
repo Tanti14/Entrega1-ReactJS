@@ -48,9 +48,10 @@ export const HeroGlassmorphism = styled.div`
     gap: 40px;
   }
 
-  @media (width <= 414px) {
-    max-width: 380px;
+  @media (width <= 470px) {
+    max-width: 400px;
     width: 100%;
+    padding: 0;
   }
 `;
 
@@ -59,9 +60,6 @@ export const ImgContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
-  /* opacity: 0;
-  animation: fade 0.9s ease-in forwards, slide-right 1.3s ease-in-out;
-  animation-delay: 0.2s; */
   img {
     width: 400px;
   }

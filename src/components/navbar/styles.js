@@ -143,14 +143,17 @@ export const Cart = styled.div`
   }
 
   @media (width <= 768px) {
-    height: calc(100vh - 125px);
-    top: 127px;
+    height: calc(100vh - 100px);
   }
 
   @media (width <= 576px) {
     width: 80%;
-    height: calc(100vh - 125px);
+    height: calc(100vh - 100px);
     top: 90px;
+  }
+
+  @media (width <= 470px) {
+    height: calc(100vh - 115px);
   }
 `;
 

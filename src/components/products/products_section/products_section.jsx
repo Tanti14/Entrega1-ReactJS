@@ -13,7 +13,7 @@ export const ProductsSection = () => {
 
   return (
     <ProdSectionContainer>
-      <h2 className="text-2xl font-bold">Productos Destacados</h2>
+      <h2 className="text-2xl font-bold">PRODUCTOS DESTACADOS</h2>
       <ProdCardContainer>
         {recommended.map((prod) => (
           <ProductCard key={"reco" + prod.id} {...prod} />

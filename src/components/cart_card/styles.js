@@ -16,6 +16,10 @@ export const CartCardContent = styled.div`
     width: 130px;
     border-radius: 12px;
   }
+
+  @media (width <= 470px) {
+    width: 300px;
+  }
 `;
 
 export const CardRightSide = styled.div`
@@ -55,7 +59,7 @@ export const CartCardBtns = styled.div`
 `;
 
 export const CardBtn = styled(motion.button)`
-  background-color: rgba(245, 158, 11, 1);
+  background-color: orange;
   width: 25px;
   border-radius: 5px;
   border: 1px solid white;

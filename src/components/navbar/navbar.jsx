@@ -108,7 +108,7 @@ export const Navbar = () => {
       text: "Esta acción no se puede revertir!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#ffa500",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, vaciar carrito!",
       cancelButtonText: "Cancelar",
