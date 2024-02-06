@@ -10,6 +10,7 @@ import { formatPrice } from "../../utils/formatPrice";
 import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../redux/cart/cartSlice";
 import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 export const CartCard = ({ id, img, title, precio, quantity }) => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ export const CartCard = ({ id, img, title, precio, quantity }) => {
   const deleteCartItem = () => {
     if (quantity === 1) {
       Swal.fire({
-        title: "Eliminar producto del carrito?",
+        title: "Eliminar item del carrito?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#ffa500",
@@ -26,11 +27,8 @@ export const CartCard = ({ id, img, title, precio, quantity }) => {
         cancelButtonText: "Cancelar",
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: "Producto eliminado",
-            icon: "success",
-            showConfirmButton: false,
-            timer: 2000,
+          toast.success("Se ha eliminado el item del carrito", {
+            position: "bottom-left",
           });
           dispatch(removeFromCart(id));
         }

@@ -11,7 +11,8 @@ export const BoxContentSection = styled.div`
   gap: 60px;
 
   h2 {
-    font-size: 24px;
+    font-size: 30px;
+    font-weight: 800;
   }
 `;
 

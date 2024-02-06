@@ -48,33 +48,36 @@ export const StyledForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 35%;
+  width: 45%;
   padding: 50px 40px;
   gap: 10px;
   background-color: #a367b1;
   border-radius: 22px;
 
-  h2 {
-    font-size: 26px;
+  h1 {
+    font-size: 30px;
+    font-weight: 800;
   }
 
   @media (width <= 992px) {
     width: 60%;
+    h1 {
+      font-size: 27px;
+    }
   }
 
   @media (width <= 768px) {
-    max-width: 765px;
-    width: 100%;
+    width: 90%;
   }
 
   @media (width <= 576px) {
-    max-width: 574px;
     width: 100%;
   }
 
   @media (width <= 414px) {
-    max-width: 410px;
-    width: 100%;
+    h1 {
+      font-size: 17px;
+    }
   }
 `;
 

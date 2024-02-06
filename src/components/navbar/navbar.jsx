@@ -24,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../redux/cart/cartSlice";
 import { formatPrice } from "../../utils/formatPrice";
 import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -114,17 +115,11 @@ export const Navbar = () => {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Carrito vacio",
-          text: "Su carrito se ha vaciado con exito",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 2000,
+        toast.success("Se han eliminado los items del carrito", {
+          position: "bottom-left",
         });
-        setTimeout(() => {
-          dispatch(clearCart());
-          handleToggleCart();
-        }, 1000);
+        dispatch(clearCart());
+        handleToggleCart();
       }
     });
   };

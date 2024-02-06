@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   CartItems,
   CartItemsDetails,
@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CheckCartCard } from "../../components/checkout-cart-card/CheckCartCard";
 import { CartDetails } from "../../components/navbar/styles";
 import { formatPrice } from "../../utils/formatPrice";
-import { Field, useFormik } from "formik";
+import { useFormik } from "formik";
 import { clearCart } from "../../redux/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { checkoutSchema, checkoutInitialValues } from "../../Formik/index.js";
@@ -39,10 +39,8 @@ export const Checkout = () => {
     validateOnBlur: true,
     validateOnChange: true,
     validateOnMount: false,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: () => {
       Swal.fire({
-        position: "top-start",
         icon: "success",
         title: "Pedido realizado con exito",
         text: "Muchas gracias por tu compra",
@@ -51,14 +49,14 @@ export const Checkout = () => {
         showClass: {
           popup: `
             animate__animated
-            animate__fadeInLeft
+            animate__fadeInDown
             animate__lower
           `,
         },
         hideClass: {
           popup: `
             animate__animated
-            animate__fadeOutLeft
+            animate__fadeOutDown
             animate__lower
           `,
         },

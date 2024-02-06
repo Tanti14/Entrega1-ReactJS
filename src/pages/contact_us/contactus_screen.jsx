@@ -55,7 +55,7 @@ export const ContactusScreen = () => {
   return (
     <StyledFormScreen>
       <StyledForm noValidate onSubmit={handleSubmit}>
-        <h2>FORMULARIO DE CONTACTO</h2>
+        <h1>FORMULARIO DE CONTACTO</h1>
         <GroupedInputs>
           <label htmlFor="name">Nombre</label>
           <StyledInput

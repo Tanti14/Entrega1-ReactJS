@@ -22,7 +22,8 @@ export const CategoryButtons = styled.div`
   user-select: none;
 `;
 export const Button = styled(motion.button)`
-  background-color: ${({ selected }) => (selected ? "#F6B17A" : "orange")};
+  background-color: orange;
+  border: ${({ selected }) => (selected ? "2px solid #ec38bc" : "none")};
   border-radius: 15px;
   cursor: pointer;
   padding: 4px 20px;

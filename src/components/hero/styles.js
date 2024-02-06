@@ -80,7 +80,7 @@ export const HeroTextContainer = styled.div`
 
   h1 {
     font-family: "Clicker Script", cursive;
-    font-size: 80px;
+    font-size: 85px;
   }
 
   p {

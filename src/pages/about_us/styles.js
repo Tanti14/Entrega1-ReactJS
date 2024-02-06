@@ -31,6 +31,11 @@ export const AboutHistoryContainer = styled.div`
 
   position: relative;
 
+  h1 {
+    font-size: 40px;
+    font-weight: 800;
+  }
+
   @media (width <= 992px) {
     max-width: 990px;
     width: 100%;
@@ -39,17 +44,29 @@ export const AboutHistoryContainer = styled.div`
   @media (width <= 768px) {
     max-width: 765px;
     width: 100%;
+
+    h1 {
+      font-size: 30px;
+    }
   }
 
   @media (width <= 576px) {
     max-width: 574px;
     width: 100%;
+
+    h1 {
+      font-size: 25px;
+    }
   }
 
   @media (width <= 414px) {
     max-width: 410px;
     width: 100%;
     font-size: 8px;
+
+    h1 {
+      font-size: 16px;
+    }
   }
 `;
 

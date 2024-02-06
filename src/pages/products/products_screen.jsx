@@ -28,21 +28,29 @@ export const ProductsScreen = () => {
 
   return (
     <StyledProdsContainer>
-      <h2 className="text-2xl font-bold">CATÁLOGO DE PRODUCTOS</h2>
+      <h1 className="text-4xl font-bold">CATÁLOGO DE PRODUCTOS</h1>
       <CategoryButtons className="animate__animated animate__fadeInUp">
+        <Button
+          selected={null === selectedCategory}
+          onClick={() => dispatch(selectCategory(null))}
+        >
+          Todos
+        </Button>
         {categos.map((catego, i) => (
-          <Button
-            key={i}
-            selected={catego === selectedCategory}
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.09 }}
-            onClick={() => dispatch(selectCategory(catego))}
-          >
-            {catego}
-          </Button>
+          <>
+            <Button
+              key={i}
+              selected={catego === selectedCategory}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.09 }}
+              onClick={() => dispatch(selectCategory(catego))}
+            >
+              {catego}
+            </Button>
+          </>
         ))}
       </CategoryButtons>
-      <StyledProdCards className="animate__animated animate__fadeInUp">
+      <StyledProdCards>
         {Object.entries(products).map(([, productos]) =>
           productos.map((prod) => {
             if (selectCategory) {

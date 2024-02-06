@@ -10,13 +10,17 @@ import { formatPrice } from "../../../utils/formatPrice";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cart/cartSlice";
 import Swal from "sweetalert2";
+import { toast } from "sonner";
 
 export const ProductCard = ({ id, title, img, peso, precio }) => {
   const dispatch = useDispatch();
 
   const addProdToCart = () => {
     dispatch(addToCart({ id, title, img, peso, precio }));
-    Swal.fire({
+    toast.success("Producto agregado al carrito", {
+      position: "bottom-left",
+    });
+    /* Swal.fire({
       position: "top-start",
       icon: "success",
       title: "Producto agregado al carrito",
@@ -36,7 +40,7 @@ export const ProductCard = ({ id, title, img, peso, precio }) => {
           animate__lower
         `,
       },
-    });
+    }); */
   };
   return (
     <CardItemsContainer>
